@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AdjustPayment>Solve the payment</AdjustPayment>
+  <SilverTip>지불하고자하는 은의 수.
+
+상인은 은을 사용하여 거래를 할 수 있습니다.</SilverTip>
+  <BankNoteTip>지불하고자하는 지폐의 수.
+
+지폐는 무역에서 1000은 만큼의 가치를 갖고있고, 추가 수수료가 없습니다.</BankNoteTip>
+  <NotEnoughSilverColony>정착지가 충분한 양의 은을 보유하고 있지 않습니다.</NotEnoughSilverColony>
+  <NotEnoughSilverBank>은행이 충분한 양의 은을 보유하고 있지 않습니다. 환전 액수를 줄이십시오.</NotEnoughSilverBank>
+  <NoNotes>사용 가능한 지폐가 없습니다..</NoNotes>
+  <ExchangeTitle>환전</ExchangeTitle>
+  <ExchangeTip>은과 지폐를 환전합니다.
+
+은을 지폐로 환전 할 때 1.5 %, 지폐를 은으로 환전 할 때 3.5 %의 수수료가 필요합니다. 장거리 드롭 포드를 제공합니다.</ExchangeTip>
+  <ExchangeSilverTip>환전할 은의 숫자(추가 비용 공제).</ExchangeSilverTip>
+  <ExchangeBankNoteTip>환전할 지폐의 숫자.</ExchangeBankNoteTip>
+</LanguageData>

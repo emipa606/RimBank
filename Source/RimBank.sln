@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RimBank.Trade", "RimBank.Trade\RimBank.Trade.csproj", "{47346C7E-BF6D-4745-9768-702F118D5F44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RimBank.Core", "RimBank.Core\RimBank.Core.csproj", "{86D35FE9-4E75-4539-891B-618F96B5F7B5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{47346C7E-BF6D-4745-9768-702F118D5F44} = {47346C7E-BF6D-4745-9768-702F118D5F44}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47346C7E-BF6D-4745-9768-702F118D5F44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47346C7E-BF6D-4745-9768-702F118D5F44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47346C7E-BF6D-4745-9768-702F118D5F44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47346C7E-BF6D-4745-9768-702F118D5F44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86D35FE9-4E75-4539-891B-618F96B5F7B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86D35FE9-4E75-4539-891B-618F96B5F7B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86D35FE9-4E75-4539-891B-618F96B5F7B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86D35FE9-4E75-4539-891B-618F96B5F7B5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48FD64C6-C065-4819-B43B-69019368A547}
+	EndGlobalSection
+EndGlobal

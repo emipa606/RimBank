@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <FloatMenuCaptionExchange>リム銀行両替サービス</FloatMenuCaptionExchange>
+  <FloatMenuCaptionRemoveAll>Modの無効化</FloatMenuCaptionRemoveAll>
+  <DlgTitleRemoveModContents>警告 : Modを無効化しようとしています！</DlgTitleRemoveModContents>
+  <DlgRemoveModContents>このコマンドを使用すると、紙幣システムとリム銀行ATMが現在のゲームデータから排除されます。
+
+
+
+
+"Modの無効化"は、セーブデータを破壊せずにこのModを安全に取り除く唯一の方法です。公式なModリストから除外する前に、この手順を踏む必要があります。
+このコマンドを使用すると当Modのすべての要素が除去された上で一旦セーブされます。その後、おそらく問題なしに、エラーを出すことなくプレイを続行できるでしょう。
+
+RimBankシリーズの他Modを導入している場合、先にそれらのModを無効化してください。
+
+
+最後に : 本当にすべてのModコンテンツを無効化してもよろしいですか？</DlgRemoveModContents>
+  <MsgModContentsRemoved>RimBankModが無効化されました ({0} 個)。ゲームのセーブと安全なMod無効化が可能です。</MsgModContentsRemoved>
+</LanguageData>

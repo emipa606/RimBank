@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <FloatMenuCaptionExchange>向銀行兌換鈔票</FloatMenuCaptionExchange>
+  <FloatMenuCaptionRemoveAll>移除所有mod物品</FloatMenuCaptionRemoveAll>
+  <DlgTitleRemoveModContents>嚴重警告：移除所有mod物品！</DlgTitleRemoveModContents>
+  <DlgRemoveModContents>你將要移除這個存檔中所有的電子鈔票和邊緣銀行終端！
+
+一旦進行此操作，你將失去所有未兌換的電子鈔票和未拆除的終端！
+
+
+移除所有mod物品是安全卸載本mod的唯一方式。當你確認後，本mod在遊戲中註冊的所有物品將被移除，然後你需要立刻保存遊戲。之後關閉這個mod，你就可以安全地加載這個存檔了。
+
+如果你還啟用了RimBank邊緣銀行系列的其他子mod，請務必先執行所有子mod的安全卸載命令。
+
+
+最後確認：你確定要移除所有mod物品嗎？</DlgRemoveModContents>
+  <MsgModContentsRemoved>已從遊戲中移除所有mod物品（共 {0} 個），你可以存檔並安全關閉本mod了。</MsgModContentsRemoved>
+</LanguageData>

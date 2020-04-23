@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef>
+    <defName>RimBankBuildingTerminal</defName>
+    <label>RimBank ATM Terminal</label>
+    <thingClass>RimBank.Core.Interactive.Building_Terminal</thingClass>
+    <category>Building</category>
+    <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+    <selectable>true</selectable>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <graphicData>
+      <texPath>RimBank_ATM</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(2.8,2.8)</drawSize>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>60</pathCost>
+    <blockWind>false</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>0.4</fillPercent>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <MaxHitPoints>300</MaxHitPoints>
+      <WorkToBuild>1800</WorkToBuild>
+      <Flammability>0.3</Flammability>
+      <Mass>35</Mass>
+    </statBases>
+    <description>A terminal with an integrated RimBank Communitating Module.This terminal is designed for banknote exchanging service just like an ATM,but it also supports some extra softwares with digital certifications.</description>
+    <size>(1,1)</size>
+    <costList>
+      <Plasteel>45</Plasteel>
+      <Steel>50</Steel>
+      <Gold>5</Gold>
+      <ComponentIndustrial>5</ComponentIndustrial>
+    </costList>
+    <interactionCellOffset>(0,0,1)</interactionCellOffset>
+    <hasInteractionCell>true</hasInteractionCell>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <repairEffect>Repair</repairEffect>
+    <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+    <designationCategory>Misc</designationCategory>
+    <building>
+      <ai_chillDestination>false</ai_chillDestination>
+    </building>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>200</basePowerConsumption>
+        <shortCircuitInRain>false</shortCircuitInRain>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Breakdownable" />
+      <li Class="CompProperties_Glower">
+        <glowRadius>1.8</glowRadius>
+        <glowColor>(127,255,255,0)</glowColor>
+      </li>
+    </comps>
+    <staticSunShadowHeight>0.5</staticSunShadowHeight>
+    <researchPrerequisites>
+      <li>MicroelectronicsBasics</li>
+    </researchPrerequisites>
+    <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
+    <tradeability>Buyable</tradeability>
+    <tradeTags>
+      <li>Furniture</li>
+      <li>Exotic</li>
+    </tradeTags>
+  </ThingDef>
+</Defs>

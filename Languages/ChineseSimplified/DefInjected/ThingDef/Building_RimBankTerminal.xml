@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RimBankBuildingTerminal.label>边缘银行ATM终端</RimBankBuildingTerminal.label>
+  <RimBankBuildingTerminal.description>一个内置了边缘银行通信模块的终端机。这台机器本来是为了钞票兑换业务而设计的——就像一台典型的ATM柜员机——但它也支持一些经数字证书认证的扩展软件。</RimBankBuildingTerminal.description>
+</LanguageData>

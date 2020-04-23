@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AdjustPayment>決済</AdjustPayment>
+  <SilverTip>シルバー支払
+
+基本通貨のシルバーで支払います。</SilverTip>
+  <BankNoteTip>紙幣支払
+
+紙幣1枚は1000シルバー相当です。手数料は発生しません</BankNoteTip>
+  <NotEnoughSilverColony>支払いに十分なシルバーがありません。</NotEnoughSilverColony>
+  <NotEnoughSilverBank>求めているシルバーが多すぎます。</NotEnoughSilverBank>
+  <NoNotes>紙幣がありません。</NoNotes>
+  <ExchangeTitle>両替</ExchangeTitle>
+  <ExchangeTip>シルバーと紙幣を両替します。
+
+輸送ポッドで届ける必要があるため、シルバーから紙幣へは1.5%、紙幣からシルバーへは3.5%の手数料が発生します。</ExchangeTip>
+  <ExchangeSilverTip>シルバー(手数料込).</ExchangeSilverTip>
+  <ExchangeBankNoteTip>紙幣</ExchangeBankNoteTip>
+</LanguageData>

@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RimBankBuildingTerminal.label>邊緣銀行ATM終端</RimBankBuildingTerminal.label>
+  <RimBankBuildingTerminal.description>一個內置了邊緣銀行通信模塊的終端機。這台機器本來是為了鈔票兌換業務而設計的——就像一台典型的ATM櫃員機——但它也支持一些經數字證書認證的擴展軟件。</RimBankBuildingTerminal.description>
+</LanguageData>

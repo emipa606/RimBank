@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RimBankBuildingTerminal.label>림 뱅크 ATM 터미널</RimBankBuildingTerminal.label>
+  <RimBankBuildingTerminal.description>통합 림 뱅크 커뮤니케이팅 모듈이있는 터미널. 이 터미널은 ATM처럼 환전 서비스를 위해 설계되었습니다.
+디지털 인증을받은 일부 추가 소프트웨어도 지원합니다.</RimBankBuildingTerminal.description>
+</LanguageData>

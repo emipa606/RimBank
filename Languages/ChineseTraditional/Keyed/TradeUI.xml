@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <AdjustPayment>結算</AdjustPayment>
+  <SilverTip>本次結算中，以白銀支付的比例。
+
+商人可以用白銀找零。</SilverTip>
+  <BankNoteTip>本次結算中，以鈔票支付的比例。
+
+每張鈔票的面額都為1000，即在結算中的效果等價於1000白銀。
+
+使用鈔票結算沒有額外的手續費。</BankNoteTip>
+  <NotEnoughSilverColony>殖民地沒有足夠的白銀以此比例結算這次交易。</NotEnoughSilverColony>
+  <NotEnoughSilverBank>白銀數額過大，請減少將兌換的電子鈔票的數量。</NotEnoughSilverBank>
+  <NoNotes>沒有鈔票可供支付</NoNotes>
+  <ExchangeTitle>兌換</ExchangeTitle>
+  <ExchangeTip>與銀行進行白銀和電子鈔票間的兌換。
+
+由於你所處的星球距離經濟中心較遠，以白銀兌換鈔票需支付1.5%手續費，以鈔票兌換白銀需支付3.5%手續費。</ExchangeTip>
+  <ExchangeSilverTip>即將兌換的白銀數量（含手續費）。</ExchangeSilverTip>
+  <ExchangeBankNoteTip>即將兌換的鈔票數量。</ExchangeBankNoteTip>
+</LanguageData>
