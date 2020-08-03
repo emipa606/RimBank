@@ -16,4 +16,5 @@ A banknote is as effective as 1000 silver in the trade,and there're no extra fee
 A fee of 1.5% is required when converting from silver to banknotes,and 3.5% when converting from banknotes to silver,to afford a long-distance drop pod.</ExchangeTip>
   <ExchangeSilverTip>The count of silver to be exchanged (extra fee deducted).</ExchangeSilverTip>
   <ExchangeBankNoteTip>The count of banknotes to be exchanged.</ExchangeBankNoteTip>
+
 </LanguageData>

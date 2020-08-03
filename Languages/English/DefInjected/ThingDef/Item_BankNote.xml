@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <BankNote.label>Banknote</BankNote.label>
+  <BankNote.description>Issued by the RimBank,a banknote is integrated with complicated data-certification algorithms and is made from polymeric fibres, which makes the cost of counterfeiting even higher than its actual value.
+
+According to the Silver Standard of RimWorld Financial System,the denomination of a banknote is 1000 Silver with no exception. Therefore,the banknotes are well accepted by all the traders -- even those primitive tribes -- among RimWorld.The orbital traders and faction bases are probably the most benefited ones,for they can save a considerable amount of transport fees using the light banknotes instead of a lump of silver.They may also hold more banknotes than other traders.
+
+Thanks to what makes them, the polymeric firbes,banknotes are relatively durable and even lighter,making them more convenient to carry. However,the polymeric material is flammable,so make sure that they're in roofed areas and are away from all kinds of heat sources.</BankNote.description>
+
+
+</LanguageData>

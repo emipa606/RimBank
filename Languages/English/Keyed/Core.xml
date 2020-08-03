@@ -16,4 +16,5 @@ If you enabled any other sub mods of RimBank Series,you must execute their safe-
 
 Final confirmation : Are you sure you want to remove all mod contents?</DlgRemoveModContents>
   <MsgModContentsRemoved>All mod items removed ({0} total).You can save the game and disable this mod safely.</MsgModContentsRemoved>
+
 </LanguageData>

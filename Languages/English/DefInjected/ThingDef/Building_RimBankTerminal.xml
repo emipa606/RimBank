@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <RimBankBuildingTerminal.label>RimBank ATM Terminal</RimBankBuildingTerminal.label>
+  <RimBankBuildingTerminal.description>A terminal with an integrated RimBank Communitating Module.This terminal is designed for banknote exchanging service just like an ATM,but it also supports some extra softwares with digital certifications.</RimBankBuildingTerminal.description>
+  <RimBankBuildingTerminal_Blueprint.label>RimBank ATM Terminal (blueprint)</RimBankBuildingTerminal_Blueprint.label>
+  <RimBankBuildingTerminal_Blueprint_Install.label>RimBank ATM Terminal (blueprint)</RimBankBuildingTerminal_Blueprint_Install.label>
+  <RimBankBuildingTerminal_Frame.label>RimBank ATM Terminal (building)</RimBankBuildingTerminal_Frame.label>
+  <RimBankBuildingTerminal_Frame.description>A terminal with an integrated RimBank Communitating Module.This terminal is designed for banknote exchanging service just like an ATM,but it also supports some extra softwares with digital certifications.</RimBankBuildingTerminal_Frame.description>
+
+
+</LanguageData>
