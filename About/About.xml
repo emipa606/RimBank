@@ -19,108 +19,95 @@
   <loadAfter>
     <li>brrainz.harmony</li>
   </loadAfter>
-  <description>Update of user19990313s mod for RimWorld 1.1
+  <description>[img]https://i.imgur.com/WAEzk68.png[/img]
+Update of user19990313s mod 
 https://steamcommunity.com/sharedfiles/filedetails/?id=1107239511
 
-[img]https://i.imgur.com/GYswkZ7.png[/img]
-
-Support-chat:
-https://invite.gg/mlie
-
-Non-steam version:
-https://github.com/emipa606/RimBank
-
 - Updated to 1.1 by Bar0th
+
+[img]https://i.imgur.com/7Gzt3Rg.png[/img]
+
+[table]
+	[tr]
+		[td][url=https://invite.gg/Mlie][img]https://i.imgur.com/zdzzBrc.png[/img][/url][/td]
+		[td][url=https://github.com/emipa606/RimBank][img]https://i.imgur.com/kTkpTOE.png[/img][/url][/td]
+	[/tr]
+[/table]
 	
---- Original Description ---
-&lt;size=20&gt;RimBank&lt;/size&gt;
-[Core mod,must be loaded before any of its sub mods]
+[img]https://i.imgur.com/NOW7jU1.png[/img]
 
-??????????????,?????
+[h1]RimBank - Banknotes, The Universal Currency System![/h1]
+for B18(build 1722)
 
-First let me introduce 4 authors (contributors) of this mod (Label's not wide enough XD).
-user19990313(ArchAuthor,Dll parts), duduluu(Textures+Preview.png), Vaniant(Defs), WishingLaws(En translation)
+This mod supports the following languages : English,简体中文,繁體中文,한국어,日本語.
+这个mod支持的语言：English，简体中文，繁體中文，한국어，日本語。
 
-It is universally known (at least on this planet), Silver serves as the currency of RimWorld. Well, the white soft metal is heavy, ugly (why -7 Tynan?) and takes up countless storage zones.
+This mod is also published on Ludeon Forum.
+Visit [url]https://ludeon.com/forums/index.php?topic=37727.0[/url] for misc info not mentioned here.
 
-That's why RimBank has developed the Banknotes.
+SUMMARY : [b]Creating a new game is [u][i]NOT[/i][/u] required![/b]
+If you find the mod useful,why don't you click "Thumbs Up"? :) Thanks!
 
-Item added : Banknotes
--A denomination of 1,000 Silver, which never changes
+It is universally known (at least on this planet), Silver serves as the currency of RimWorld. Well, the white soft metal is heavy, ugly [spoiler](why -7 Tynan?)[/spoiler] and takes up countless storage zones.
+
+That's why [b][i]RimBank[/i][/b] has developed the Banknotes.
+
+
+[h1]Item added : Banknotes[/h1]
+-A denomination of [u]1,000 Silver[/u], which never changes
 -Light and durable, suitable for saving a considerable amount of money
--Accepted by any traders, so just keep some silver for change
+-[u]Accepted by any traders[/u], so just keep some silver for change
 -Available in any purchase
 -New UI , deciding how much you want to pay by banknotes
 -Orbital tradeships and settlements loves banknotes! And they have many as well!
 -And yes, traders can give change using Silver, so no value overflows for banknotes!
--Exchange between Silver and Banknotes with any traders! (At least traders should have enough currency for this)
+-[u]Exchange between Silver and Banknotes[/u] with any traders! (At least traders should have enough currency for this)
 
-Building Added : RimBank ATM Terminal
--Minifiable and relatively inexpensive
+[h1]Building Added : RimBank ATM Terminal[/h1]
+-[u]Minifiable[/u] and relatively inexpensive
 -Exchange between Silver and Banknotes with RimBank at any time! (Extra fees required)
--Various extension softwares (sub mods required)
+-[u]Various extension softwares[/u] (sub mods required)
 
-Extra Features
+[h1]Extra Features[/h1]
 -Add it to your game at any time! Opening a new save is NOT required.
 -Remove it from your game at any time without corrupting your saves! (See below)
 
-HowTo
+
+[h1]HowTo[/h1]
 1.Load this mod after Core.
 2.So that's all.
-3.When trying to remove this mod,make sure you have an ATM Terminal. Select a colonist, HOLD Shift key and right-click the terminal, then (don't release key) select "Remove all mod contents". If there are any active sub mods, please make sure all the removing commands for those sub mods have been executed.
+3.[u]When trying to remove this mod,make sure you have an ATM Terminal. Select a colonist, HOLD Shift key and right-click the terminal, then (don't release key) select "Remove all mod contents". If there are any active sub mods, please make sure all the removing commands for those sub mods have been executed.[/u]
 
 Enjoy!
 
-PS. The new building is in "Misc" category, and will be unlocked if you've finished the research "Microelectronics Basics".
+[h1]PS[/h1]
+PS. [b][u]The new building is in "Misc" category, and will be unlocked if you've finished the research "Microelectronics Basics".[/u][/b]
 PS2. If you get stuck while solving a payment, try to stop your mouse over icons or title - A tooltip will emerge and lead the way.
 PS3. The coremod of RimBank Series (aka this mod) and all sub mods must have the same MinorVersion number. Well if you cannot figure out what I'm talking about, just ignore it, a built-in ModChecker will take charge of it.
 PS4. (That was a joke in RuntimeGC)
 PS5. Post any errors or bugs on my forum thread or Steam workshop page.Your effort contributes to a better mod.Thanks!
 
+[h1]Other[/h1]
+[i]Compatibility:[/i] No known mod conflict yet.
+[i]Installation:[/i]
+Add this mod any time you like.
+Remove this mod any time you like.[b]Please follow the instructions in HowTo Section.[/b]
+You don't have to create a new game.
+[h1]You should obey the clauses mentioned in the forum thread when adding this mod into your modpack.[/h1]
 
 
+Finally, I want to say thanks to all the co-authors. Our coop was really,really amazing!
 
 
-&lt;size=20&gt;RimBank ????&lt;/size&gt;
-[??mod,????mod????????]
-
-?????mod????????(???,?????????)
-user19990313(??,dll??),????(??+???),????(Defs),?????????(???)
-
-????,???????????????????????????????????:????,????????,?????(???...)???
-
-?????????????,?????????????????
-
-?????:????
--??1000???????,????!
--?????,??????,?????????
--????????????,????????
--?????????????
--??UI??????????????????????
--??????????????????!
--??????????!
--??????????????!(???????????)
-
-?????:RimBank????ATM??
--????,????!
--??????????????!(????)
--???????(????????mod)
-
-????
--???????,?????
--?????,??????(??)
-
-????
-1.????mod(???Core??)
-2.?????
-3.???????mod,???????ATM??,????????,??Shift?????,??�????mod??�(???Shift)?????????????mod,??????mod????????????
-
-????!
-
-PS. ???ATM???�??�???,????�?????�?????
-PS2. ???????UI????????,???????????,??????????????��????????
-PS3. ??????mod????mod????,????????????,?mod??????????,??????????????
-PS4. (???,??RuntimeGC????)
-PS5. ?????mod???bug???????????(??Ludeon??,??Steam??),???mod???????!
+[img]https://i.imgur.com/Rs6T6cr.png[/img]
+[list]
+[*] See if the the error persists if you just have this mod and its requirements active.
+[*] If not, try adding your other mods until it happens again.
+[*] Post your error-log using [url=https://steamcommunity.com/workshop/filedetails/?id=818773962]HugsLib[/url] and command Ctrl+F12
+[*] For best support, please use the Discord-channel for error-reporting.
+[*] Do not report errors by making a discussion-thread, I get no notification of that.
+[*] If you have the solution for a problem, please post it to the GitHub repository.
+[/list]
 </description>
 </ModMetaData>
+

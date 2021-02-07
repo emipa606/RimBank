@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationConditional">
+    <xpath>/Defs/TraderKindDef[orbital="true"]/stockGenerators/li/thingDef[defName="BankNote"]</xpath>
+    <success>Always</success>
+    <nomatch Class="PatchOperationAdd">
+      <xpath>/Defs/TraderKindDef[orbital="true"]/stockGenerators</xpath>
+      <value>
+        <li Class="StockGenerator_SingleDef">
+          <thingDef>BankNote</thingDef>
+        </li>
+      </value>
+    </nomatch>
+  </Operation>
+</Patch>
