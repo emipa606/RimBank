@@ -10,9 +10,9 @@ namespace RimBank.Trade
     {
         public static void Postfix(Settlement_TraderTracker __instance)
         {
-            Thing thing = ThingMaker.MakeThing(BankDefOf.BankNote);
-            int min = 0;
-            int max = 0;
+            var thing = ThingMaker.MakeThing(BankDefOf.BankNote);
+            var min = 0;
+            var max = 0;
             switch (__instance.settlement.Faction.def.techLevel)
             {
                 case TechLevel.Neolithic:
@@ -41,8 +41,10 @@ namespace RimBank.Trade
                     max = 16;
                     break;
             }
+
             thing.stackCount = Rand.Range(min, max);
-            ((ThingOwner<Thing>)AccessTools.Field(typeof(Settlement_TraderTracker), "stock").GetValue(__instance)).TryAdd(thing);
+            ((ThingOwner<Thing>) AccessTools.Field(typeof(Settlement_TraderTracker), "stock").GetValue(__instance))
+                .TryAdd(thing);
         }
     }
 }

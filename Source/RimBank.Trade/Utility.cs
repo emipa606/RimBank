@@ -1,6 +1,6 @@
-﻿using RimBank.Trade.Ext;
+﻿using System.Collections.Generic;
+using RimBank.Trade.Ext;
 using RimWorld;
-using System.Collections.Generic;
 using Verse;
 
 namespace RimBank.Trade
@@ -19,27 +19,31 @@ namespace RimBank.Trade
 
         internal static int GetNotesCountAvaliable(Transactor trans)
         {
-            int num = 0;
-            foreach (Tradeable cacheNote in Methods.cacheNotes)
+            var num = 0;
+            foreach (var cacheNote in Methods.cacheNotes)
             {
                 num += cacheNote.CountHeldBy(trans);
             }
+
             return num;
         }
 
         public static void DebugOutputNotes()
         {
-            foreach (Tradeable cacheNote in Methods.cacheNotes)
+            foreach (var cacheNote in Methods.cacheNotes)
             {
-                Log.Message(cacheNote.ThingDef.defName + ",colony=" + cacheNote.CountHeldBy(Transactor.Colony) + ",trader=" + cacheNote.CountHeldBy(Transactor.Trader) + ",dura=" + cacheNote.AnyThing.HitPoints.ToString());
+                Log.Message(cacheNote.ThingDef.defName + ",colony=" + cacheNote.CountHeldBy(Transactor.Colony) +
+                            ",trader=" + cacheNote.CountHeldBy(Transactor.Trader) + ",dura=" +
+                            cacheNote.AnyThing.HitPoints);
             }
         }
 
         public static void DebugOutputTradeables(List<Tradeable> cache)
         {
-            foreach (Tradeable item in cache)
+            foreach (var item in cache)
             {
-                Log.Message(item.ThingDef.defName + ",x" + item.CountHeldBy(Transactor.Colony).ToString() + ",dura=" + item.AnyThing.HitPoints.ToString() + ",cnt=" + item.CountToTransfer);
+                Log.Message(item.ThingDef.defName + ",x" + item.CountHeldBy(Transactor.Colony) + ",dura=" +
+                            item.AnyThing.HitPoints + ",cnt=" + item.CountToTransfer);
             }
         }
 
@@ -56,20 +60,24 @@ namespace RimBank.Trade
                 Messages.Message("MessageColonyCannotAfford".Translate(), MessageTypeDefOf.RejectInput);
                 return;
             }
-            int playersilver = currency.CountHeldBy(Transactor.Colony);
-            int notesCountAvaliable = GetNotesCountAvaliable(Transactor.Colony);
-            int countToTransfer = currency.CountToTransfer;
-            int num = 0;
-            for (int num2 = Methods.cacheNotes.Count - 1; num2 > -1; num2--)
+
+            var playersilver = currency.CountHeldBy(Transactor.Colony);
+            var notesCountAvaliable = GetNotesCountAvaliable(Transactor.Colony);
+            var countToTransfer = currency.CountToTransfer;
+            var num = 0;
+            for (var num2 = Methods.cacheNotes.Count - 1; num2 > -1; num2--)
             {
                 num += Methods.cacheNotes[num2].CountHeldBy(Transactor.Trader);
             }
-            Find.WindowStack.Add(new Dialog_PayByBankNotes(countToTransfer, playersilver, notesCountAvaliable, currency.CountHeldBy(Transactor.Trader), num, isVirtual));
+
+            Find.WindowStack.Add(new Dialog_PayByBankNotes(countToTransfer, playersilver, notesCountAvaliable,
+                currency.CountHeldBy(Transactor.Trader), num, isVirtual));
         }
 
         internal static Pair<int, int> GetCurrencyFmt()
         {
-            return Find.WindowStack.WindowOfType<Dialog_PayByBankNotes>()?.CurrencyFmt ?? ((VirtualTrader)TradeSession.trader).GetCurrencyFmt();
+            return Find.WindowStack.WindowOfType<Dialog_PayByBankNotes>()?.CurrencyFmt ??
+                   ((VirtualTrader) TradeSession.trader).GetCurrencyFmt();
         }
     }
 }

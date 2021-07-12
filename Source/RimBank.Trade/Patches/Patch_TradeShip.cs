@@ -9,9 +9,9 @@ namespace RimBank.Trade
     {
         public static void Postfix(TradeShip __instance)
         {
-            Thing thing = ThingMaker.MakeThing(BankDefOf.BankNote);
+            var thing = ThingMaker.MakeThing(BankDefOf.BankNote);
             thing.stackCount = Rand.Range(8, 16);
-            ((ThingOwner)AccessTools.Field(typeof(TradeShip), "things").GetValue(__instance)).TryAdd(thing);
+            ((ThingOwner) AccessTools.Field(typeof(TradeShip), "things").GetValue(__instance)).TryAdd(thing);
         }
     }
 }

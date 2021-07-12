@@ -1,6 +1,6 @@
-﻿using RimWorld;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using RimWorld;
 using Verse;
 
 namespace RimBank.Trade.Ext
@@ -30,7 +30,8 @@ namespace RimBank.Trade.Ext
 
         public float TradePriceImprovementOffsetForPlayer => 0f;
 
-        public virtual TraderKindDef TraderKind => DefDatabase<TraderKindDef>.GetNamed("Orbital_BulkGoods"); // Dummy trader def
+        public virtual TraderKindDef TraderKind =>
+            DefDatabase<TraderKindDef>.GetNamed("Orbital_BulkGoods"); // Dummy trader def
 
         public virtual string TraderName => "Virtual Trader";
 
@@ -38,7 +39,7 @@ namespace RimBank.Trade.Ext
 
         public virtual IEnumerable<Thing> ColonyThingsWillingToBuy(Pawn playerNegotiator)
         {
-            foreach (Thing item in TradeUtility.AllLaunchableThingsForTrade(Find.CurrentMap))
+            foreach (var item in TradeUtility.AllLaunchableThingsForTrade(Find.CurrentMap))
             {
                 if (item.def == BankDefOf.BankNote || item.def == ThingDefOf.Silver)
                 {
@@ -49,17 +50,17 @@ namespace RimBank.Trade.Ext
 
         public virtual void GiveSoldThingToPlayer(Thing toGive, int countToGive, Pawn playerNegotiator)
         {
-            Thing thing = toGive.SplitOff(countToGive);
+            var thing = toGive.SplitOff(countToGive);
             thing.PreTraded(TradeAction.PlayerBuys, playerNegotiator, this);
             TradeUtility.SpawnDropPod(DropCellFinder.TradeDropSpot(Find.CurrentMap), Find.CurrentMap, thing);
         }
 
         public virtual void GiveSoldThingToTrader(Thing toGive, int countToGive, Pawn playerNegotiator)
         {
-            Thing thing = toGive.SplitOff(countToGive);
+            var thing = toGive.SplitOff(countToGive);
             thing.PreTraded(TradeAction.PlayerSells, playerNegotiator, this);
-            Thing thing2 = TradeUtility.ThingFromStockToMergeWith(this, thing);
-            if (thing2 != null && !thing2.TryAbsorbStack(thing, respectStackLimit: false))
+            var thing2 = TradeUtility.ThingFromStockToMergeWith(this, thing);
+            if (thing2 != null && !thing2.TryAbsorbStack(thing, false))
             {
                 thing.Destroy();
             }
@@ -94,7 +95,8 @@ namespace RimBank.Trade.Ext
 
         public virtual Pair<int, int> GetCurrencyFmt()
         {
-            throw new InvalidOperationException("Direct call of VirtualTrader.GetCurrencyFmt(),System lost ctrl because therere no Dialog_PayByBankNotes and derived type doesnt override this function.");
+            throw new InvalidOperationException(
+                "Direct call of VirtualTrader.GetCurrencyFmt(),System lost ctrl because therere no Dialog_PayByBankNotes and derived type doesnt override this function.");
         }
     }
 }

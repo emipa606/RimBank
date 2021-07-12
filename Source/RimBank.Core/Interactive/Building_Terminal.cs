@@ -1,5 +1,5 @@
-﻿using RimWorld;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using RimWorld;
 using Verse;
 using Verse.AI;
 
@@ -13,10 +13,11 @@ namespace RimBank.Core.Interactive
         {
             get
             {
-                if (!base.Spawned || !base.Map.gameConditionManager.ConditionIsActive(GameConditionDefOf.SolarFlare))
+                if (!Spawned || !Map.gameConditionManager.ConditionIsActive(GameConditionDefOf.SolarFlare))
                 {
                     return powerComp.PowerOn;
                 }
+
                 return false;
             }
         }
@@ -31,37 +32,42 @@ namespace RimBank.Core.Interactive
         {
             if (!selPawn.CanReach(this, PathEndMode.InteractionCell, Danger.Some))
             {
-                FloatMenuOption item = new FloatMenuOption("CannotUseNoPath".Translate(), null);
+                var item = new FloatMenuOption("CannotUseNoPath".Translate(), null);
                 return new List<FloatMenuOption>
-            {
-                item
-            };
+                {
+                    item
+                };
             }
-            if (base.Spawned && base.Map.gameConditionManager.ConditionIsActive(GameConditionDefOf.SolarFlare))
+
+            if (Spawned && Map.gameConditionManager.ConditionIsActive(GameConditionDefOf.SolarFlare))
             {
-                FloatMenuOption item2 = new FloatMenuOption("CannotUseSolarFlare".Translate(), null);
+                var item2 = new FloatMenuOption("CannotUseSolarFlare".Translate(), null);
                 return new List<FloatMenuOption>
-            {
-                item2
-            };
+                {
+                    item2
+                };
             }
+
             if (!powerComp.PowerOn)
             {
-                FloatMenuOption item3 = new FloatMenuOption("CannotUseNoPower".Translate(), null);
+                var item3 = new FloatMenuOption("CannotUseNoPower".Translate(), null);
                 return new List<FloatMenuOption>
-            {
-                item3
-            };
+                {
+                    item3
+                };
             }
-            if (!selPawn.health.capacities.CapableOf(PawnCapacityDefOf.Sight))
+
+            if (selPawn.health.capacities.CapableOf(PawnCapacityDefOf.Sight))
             {
-                FloatMenuOption item4 = new FloatMenuOption("CannotUseReason".Translate("IncapableOfCapacity".Translate(PawnCapacityDefOf.Sight.label)), null);
-                return new List<FloatMenuOption>
+                return FloatMenuManager.RequestBuild(this, selPawn);
+            }
+
+            var item4 = new FloatMenuOption(
+                "CannotUseReason".Translate("IncapableOfCapacity".Translate(PawnCapacityDefOf.Sight.label)), null);
+            return new List<FloatMenuOption>
             {
                 item4
             };
-            }
-            return FloatMenuManager.RequestBuild(this, selPawn);
         }
     }
 }

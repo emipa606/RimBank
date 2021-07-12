@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
   <name>RimBank (Continued)</name>
   <packageId>Mlie.RimBank</packageId>
@@ -7,6 +7,7 @@
   <supportedVersions>
     <li>1.1</li>
     <li>1.2</li>
+    <li>1.3</li>
   </supportedVersions>
   <modDependencies>
     <li>
@@ -24,6 +25,7 @@ Update of user19990313s mod
 https://steamcommunity.com/sharedfiles/filedetails/?id=1107239511
 
 - Updated to 1.1 by Bar0th
+- Added a patch to force all orbital trader accept bank-notes
 
 [img]https://i.imgur.com/7Gzt3Rg.png[/img]
 
@@ -46,11 +48,11 @@ This mod is also published on Ludeon Forum.
 Visit [url]https://ludeon.com/forums/index.php?topic=37727.0[/url] for misc info not mentioned here.
 
 SUMMARY : [b]Creating a new game is [u][i]NOT[/i][/u] required![/b]
-If you find the mod useful,why don't you click "Thumbs Up"? :) Thanks!
+If you find the mod useful,why don&apos;t you click &quot;Thumbs Up&quot;? :) Thanks!
 
 It is universally known (at least on this planet), Silver serves as the currency of RimWorld. Well, the white soft metal is heavy, ugly [spoiler](why -7 Tynan?)[/spoiler] and takes up countless storage zones.
 
-That's why [b][i]RimBank[/i][/b] has developed the Banknotes.
+That&apos;s why [b][i]RimBank[/i][/b] has developed the Banknotes.
 
 
 [h1]Item added : Banknotes[/h1]
@@ -75,15 +77,15 @@ That's why [b][i]RimBank[/i][/b] has developed the Banknotes.
 
 [h1]HowTo[/h1]
 1.Load this mod after Core.
-2.So that's all.
-3.[u]When trying to remove this mod,make sure you have an ATM Terminal. Select a colonist, HOLD Shift key and right-click the terminal, then (don't release key) select "Remove all mod contents". If there are any active sub mods, please make sure all the removing commands for those sub mods have been executed.[/u]
+2.So that&apos;s all.
+3.[u]When trying to remove this mod,make sure you have an ATM Terminal. Select a colonist, HOLD Shift key and right-click the terminal, then (don&apos;t release key) select &quot;Remove all mod contents&quot;. If there are any active sub mods, please make sure all the removing commands for those sub mods have been executed.[/u]
 
 Enjoy!
 
 [h1]PS[/h1]
-PS. [b][u]The new building is in "Misc" category, and will be unlocked if you've finished the research "Microelectronics Basics".[/u][/b]
+PS. [b][u]The new building is in &quot;Misc&quot; category, and will be unlocked if you&apos;ve finished the research &quot;Microelectronics Basics&quot;.[/u][/b]
 PS2. If you get stuck while solving a payment, try to stop your mouse over icons or title - A tooltip will emerge and lead the way.
-PS3. The coremod of RimBank Series (aka this mod) and all sub mods must have the same MinorVersion number. Well if you cannot figure out what I'm talking about, just ignore it, a built-in ModChecker will take charge of it.
+PS3. The coremod of RimBank Series (aka this mod) and all sub mods must have the same MinorVersion number. Well if you cannot figure out what I&apos;m talking about, just ignore it, a built-in ModChecker will take charge of it.
 PS4. (That was a joke in RuntimeGC)
 PS5. Post any errors or bugs on my forum thread or Steam workshop page.Your effort contributes to a better mod.Thanks!
 
@@ -92,7 +94,7 @@ PS5. Post any errors or bugs on my forum thread or Steam workshop page.Your effo
 [i]Installation:[/i]
 Add this mod any time you like.
 Remove this mod any time you like.[b]Please follow the instructions in HowTo Section.[/b]
-You don't have to create a new game.
+You don&apos;t have to create a new game.
 [h1]You should obey the clauses mentioned in the forum thread when adding this mod into your modpack.[/h1]
 
 
@@ -108,6 +110,6 @@ Finally, I want to say thanks to all the co-authors. Our coop was really,really 
 [*] Do not report errors by making a discussion-thread, I get no notification of that.
 [*] If you have the solution for a problem, please post it to the GitHub repository.
 [/list]
+
 </description>
 </ModMetaData>
-
