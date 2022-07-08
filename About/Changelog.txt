@@ -1,5 +1,8 @@
 # Changelog for RimBank
 
+1.3.1 - Support for the release of RimSilo
+
+
 1.0.4.0 - Republish to see if the beta build had the same issues as other mods had
 
 

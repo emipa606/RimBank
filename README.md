@@ -1,6 +1,6 @@
 # RimBank
 
-![Image](https://i.imgur.com/WAEzk68.png)
+![Image](https://i.imgur.com/buuPQel.png)
 
 Update of user19990313s mod 
 https://steamcommunity.com/sharedfiles/filedetails/?id=1107239511
@@ -8,19 +8,10 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=1107239511
 - Updated to 1.1 by Bar0th
 - Added a patch to force all orbital trader accept bank-notes
 
-![Image](https://i.imgur.com/7Gzt3Rg.png)
+![Image](https://i.imgur.com/pufA0kM.png)
 
-
-[table]
-	[tr]
-		[td]https://invite.gg/Mlie]![Image](https://i.imgur.com/zdzzBrc.png)
-[/td]
-		[td]https://github.com/emipa606/RimBank]![Image](https://i.imgur.com/kTkpTOE.png)
-[/td]
-	[/tr]
-[/table]
 	
-![Image](https://i.imgur.com/NOW7jU1.png)
+![Image](https://i.imgur.com/Z4GOv8H.png)
 
 
 # RimBank - Banknotes, The Universal Currency System!
@@ -34,11 +25,11 @@ This mod is also published on Ludeon Forum.
 Visit [url]https://ludeon.com/forums/index.php?topic=37727.0 for misc info not mentioned here.
 
 SUMMARY : **Creating a new game is [u]*NOT*[/u] required!**
-If you find the mod useful,why don&apos;t you click &quot;Thumbs Up&quot;? :) Thanks!
+If you find the mod useful,why don't you click "Thumbs Up"? :) Thanks!
 
 It is universally known (at least on this planet), Silver serves as the currency of RimWorld. Well, the white soft metal is heavy, ugly [spoiler](why -7 Tynan?)[/spoiler] and takes up countless storage zones.
 
-That&apos;s why ***RimBank*** has developed the Banknotes.
+That's why ***RimBank*** has developed the Banknotes.
 
 
 # Item added : Banknotes
@@ -67,16 +58,16 @@ That&apos;s why ***RimBank*** has developed the Banknotes.
 # HowTo
 
 1.Load this mod after Core.
-2.So that&apos;s all.
-3.[u]When trying to remove this mod,make sure you have an ATM Terminal. Select a colonist, HOLD Shift key and right-click the terminal, then (don&apos;t release key) select &quot;Remove all mod contents&quot;. If there are any active sub mods, please make sure all the removing commands for those sub mods have been executed.[/u]
+2.So that's all.
+3.[u]When trying to remove this mod,make sure you have an ATM Terminal. Select a colonist, HOLD Shift key and right-click the terminal, then (don't release key) select "Remove all mod contents". If there are any active sub mods, please make sure all the removing commands for those sub mods have been executed.[/u]
 
 Enjoy!
 
 # PS
 
-PS. **[u]The new building is in &quot;Misc&quot; category, and will be unlocked if you&apos;ve finished the research &quot;Microelectronics Basics&quot;.[/u]**
+PS. **[u]The new building is in "Misc" category, and will be unlocked if you've finished the research "Microelectronics Basics".[/u]**
 PS2. If you get stuck while solving a payment, try to stop your mouse over icons or title - A tooltip will emerge and lead the way.
-PS3. The coremod of RimBank Series (aka this mod) and all sub mods must have the same MinorVersion number. Well if you cannot figure out what I&apos;m talking about, just ignore it, a built-in ModChecker will take charge of it.
+PS3. The coremod of RimBank Series (aka this mod) and all sub mods must have the same MinorVersion number. Well if you cannot figure out what I'm talking about, just ignore it, a built-in ModChecker will take charge of it.
 PS4. (That was a joke in RuntimeGC)
 PS5. Post any errors or bugs on my forum thread or Steam workshop page.Your effort contributes to a better mod.Thanks!
 
@@ -86,7 +77,7 @@ PS5. Post any errors or bugs on my forum thread or Steam workshop page.Your effo
 *Installation:*
 Add this mod any time you like.
 Remove this mod any time you like.**Please follow the instructions in HowTo Section.**
-You don&apos;t have to create a new game.
+You don't have to create a new game.
 # You should obey the clauses mentioned in the forum thread when adding this mod into your modpack.
 
 
@@ -94,7 +85,7 @@ You don&apos;t have to create a new game.
 Finally, I want to say thanks to all the co-authors. Our coop was really,really amazing!
 
 
-![Image](https://i.imgur.com/Rs6T6cr.png)
+![Image](https://i.imgur.com/PwoNOj4.png)
 
 
 
