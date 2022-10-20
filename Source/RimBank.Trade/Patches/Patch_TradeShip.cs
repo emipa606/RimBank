@@ -2,16 +2,15 @@
 using RimWorld;
 using Verse;
 
-namespace RimBank.Trade
+namespace RimBank.Trade;
+
+[HarmonyPatch(typeof(TradeShip), "GenerateThings")]
+public static class Patch_TradeShip
 {
-    [HarmonyPatch(typeof(TradeShip), "GenerateThings")]
-    public static class Patch_TradeShip
+    public static void Postfix(TradeShip __instance)
     {
-        public static void Postfix(TradeShip __instance)
-        {
-            var thing = ThingMaker.MakeThing(BankDefOf.BankNote);
-            thing.stackCount = Rand.Range(8, 16);
-            ((ThingOwner) AccessTools.Field(typeof(TradeShip), "things").GetValue(__instance)).TryAdd(thing);
-        }
+        var thing = ThingMaker.MakeThing(BankDefOf.BankNote);
+        thing.stackCount = Rand.Range(8, 16);
+        ((ThingOwner)AccessTools.Field(typeof(TradeShip), "things").GetValue(__instance)).TryAdd(thing);
     }
 }

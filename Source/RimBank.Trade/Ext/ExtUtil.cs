@@ -4,142 +4,141 @@ using UnityEngine;
 using Verse;
 using Verse.Sound;
 
-namespace RimBank.Trade.Ext
+namespace RimBank.Trade.Ext;
+
+[StaticConstructorOnStartup]
+public static class ExtUtil
 {
-    [StaticConstructorOnStartup]
-    public static class ExtUtil
+    private static readonly Texture TradeArrow = (Texture)typeof(TransferableUIUtility)
+        .GetField("TradeArrow", BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic)
+        ?.GetValue(null);
+
+    public static void PrepareVirtualTrade(Pawn pawn, VirtualTrader trader)
     {
-        private static readonly Texture TradeArrow = (Texture) typeof(TransferableUIUtility)
-            .GetField("TradeArrow", BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic)
-            ?.GetValue(null);
+        TradeSession.SetupWith(trader, pawn, false);
+        trader.InvokeTradeUI();
+    }
 
-        public static void PrepareVirtualTrade(Pawn pawn, VirtualTrader trader)
+    public static float BrokerageFactor(int a)
+    {
+        if (a <= 0)
         {
-            TradeSession.SetupWith(trader, pawn, false);
-            trader.InvokeTradeUI();
+            return -0.035f;
         }
 
-        public static float BrokerageFactor(int a)
-        {
-            if (a <= 0)
-            {
-                return -0.035f;
-            }
+        return 0.015f;
+    }
 
-            return 0.015f;
+    public static void DoCountAdjustInterfaceForSilver(Rect rect, Transferable trad, int _, int min, int max,
+        bool flash)
+    {
+        rect = rect.Rounded();
+        var rect2 = new Rect(rect.center.x - 45f, rect.center.y - 12.5f, 90f, 25f).Rounded();
+        if (flash)
+        {
+            GUI.DrawTexture(rect2, TransferableUIUtility.FlashTex);
         }
 
-        public static void DoCountAdjustInterfaceForSilver(Rect rect, Transferable trad, int _, int min, int max,
-            bool flash)
+        var num = trad is TransferableOneWay { HasAnyThing: true, AnyThing: Pawn, MaxCount: 1 };
+        if (num)
         {
-            rect = rect.Rounded();
-            var rect2 = new Rect(rect.center.x - 45f, rect.center.y - 12.5f, 90f, 25f).Rounded();
-            if (flash)
+            var checkOn = trad.CountToTransfer != 0;
+            Widgets.Checkbox(rect2.position, ref checkOn);
+            if (checkOn != (trad.CountToTransfer != 0))
             {
-                GUI.DrawTexture(rect2, TransferableUIUtility.FlashTex);
+                trad.AdjustTo(checkOn ? trad.GetMaximumToTransfer() : trad.GetMinimumToTransfer());
             }
+        }
+        else
+        {
+            var rect3 = rect2.ContractedBy(2f);
+            rect3.xMax -= 15f;
+            rect3.xMin += 16f;
+            var val = trad.CountToTransfer;
+            var buffer = trad.EditBuffer;
+            Widgets.TextFieldNumeric(rect3, ref val, ref buffer, min, max);
+            trad.AdjustTo(val);
+            trad.EditBuffer = buffer;
+        }
 
-            var num = trad is TransferableOneWay {HasAnyThing: true, AnyThing: Pawn, MaxCount: 1};
-            if (num)
+        Text.Anchor = TextAnchor.UpperLeft;
+        GUI.color = Color.white;
+        if (!num)
+        {
+            var num2 = trad.PositiveCountDirection == TransferablePositiveCountDirection.Source ? 1 : -1;
+            var num3 = GenUI.CurrentAdjustmentMultiplier();
+            if (trad.CanAdjustBy(num2 * num3).Accepted)
             {
-                var checkOn = trad.CountToTransfer != 0;
-                Widgets.Checkbox(rect2.position, ref checkOn);
-                if (checkOn != (trad.CountToTransfer != 0))
+                var rect4 = new Rect(rect2.x - 30f, rect.y, 30f, rect.height);
+                if (trad.GetRange() == 1)
                 {
-                    trad.AdjustTo(checkOn ? trad.GetMaximumToTransfer() : trad.GetMinimumToTransfer());
+                    rect4.x -= rect4.width;
+                    rect4.width += rect4.width;
                 }
-            }
-            else
-            {
-                var rect3 = rect2.ContractedBy(2f);
-                rect3.xMax -= 15f;
-                rect3.xMin += 16f;
-                var val = trad.CountToTransfer;
-                var buffer = trad.EditBuffer;
-                Widgets.TextFieldNumeric(rect3, ref val, ref buffer, min, max);
-                trad.AdjustTo(val);
-                trad.EditBuffer = buffer;
-            }
 
-            Text.Anchor = TextAnchor.UpperLeft;
-            GUI.color = Color.white;
-            if (!num)
-            {
-                var num2 = trad.PositiveCountDirection == TransferablePositiveCountDirection.Source ? 1 : -1;
-                var num3 = GenUI.CurrentAdjustmentMultiplier();
-                if (trad.CanAdjustBy(num2 * num3).Accepted)
+                if (Widgets.ButtonText(rect4, "<"))
                 {
-                    var rect4 = new Rect(rect2.x - 30f, rect.y, 30f, rect.height);
-                    if (trad.GetRange() == 1)
-                    {
-                        rect4.x -= rect4.width;
-                        rect4.width += rect4.width;
-                    }
+                    trad.AdjustBy(num2 * num3);
+                    SoundDefOf.Tick_High.PlayOneShotOnCamera();
+                }
 
-                    if (Widgets.ButtonText(rect4, "<"))
+                if (trad.GetRange() != 1)
+                {
+                    var label = "<<";
+                    rect4.x -= rect4.width;
+                    if (Widgets.ButtonText(rect4, label))
                     {
-                        trad.AdjustBy(num2 * num3);
+                        trad.AdjustTo(num2 == 1 ? trad.GetMaximumToTransfer() : trad.GetMinimumToTransfer());
+
                         SoundDefOf.Tick_High.PlayOneShotOnCamera();
                     }
+                }
+            }
 
-                    if (trad.GetRange() != 1)
-                    {
-                        var label = "<<";
-                        rect4.x -= rect4.width;
-                        if (Widgets.ButtonText(rect4, label))
-                        {
-                            trad.AdjustTo(num2 == 1 ? trad.GetMaximumToTransfer() : trad.GetMinimumToTransfer());
-
-                            SoundDefOf.Tick_High.PlayOneShotOnCamera();
-                        }
-                    }
+            if (trad.CanAdjustBy(-num2 * num3).Accepted)
+            {
+                var rect5 = new Rect(rect2.xMax, rect.y, 30f, rect.height);
+                if (trad.GetRange() == 1)
+                {
+                    rect5.width += rect5.width;
                 }
 
-                if (trad.CanAdjustBy(-num2 * num3).Accepted)
+                if (Widgets.ButtonText(rect5, ">"))
                 {
-                    var rect5 = new Rect(rect2.xMax, rect.y, 30f, rect.height);
-                    if (trad.GetRange() == 1)
-                    {
-                        rect5.width += rect5.width;
-                    }
+                    trad.AdjustBy(-num2 * num3);
+                    SoundDefOf.Tick_Low.PlayOneShotOnCamera();
+                }
 
-                    if (Widgets.ButtonText(rect5, ">"))
+                if (trad.GetRange() != 1)
+                {
+                    var label2 = ">>";
+                    rect5.x += rect5.width;
+                    if (Widgets.ButtonText(rect5, label2))
                     {
-                        trad.AdjustBy(-num2 * num3);
+                        trad.AdjustTo(num2 == 1 ? trad.GetMinimumToTransfer() : trad.GetMaximumToTransfer());
+
                         SoundDefOf.Tick_Low.PlayOneShotOnCamera();
                     }
-
-                    if (trad.GetRange() != 1)
-                    {
-                        var label2 = ">>";
-                        rect5.x += rect5.width;
-                        if (Widgets.ButtonText(rect5, label2))
-                        {
-                            trad.AdjustTo(num2 == 1 ? trad.GetMinimumToTransfer() : trad.GetMaximumToTransfer());
-
-                            SoundDefOf.Tick_Low.PlayOneShotOnCamera();
-                        }
-                    }
                 }
             }
-
-            if (trad.CountToTransfer == 0)
-            {
-                return;
-            }
-
-            var position = new Rect(rect2.x + (rect2.width / 2f) - (TradeArrow.width / 2),
-                rect2.y + (rect2.height / 2f) - (TradeArrow.height / 2), TradeArrow.width, TradeArrow.height);
-            var positiveCountDirection = trad.PositiveCountDirection;
-            if (positiveCountDirection == TransferablePositiveCountDirection.Source && trad.CountToTransfer > 0 ||
-                positiveCountDirection == TransferablePositiveCountDirection.Destination &&
-                trad.CountToTransfer < 0)
-            {
-                position.x += position.width;
-                position.width *= -1f;
-            }
-
-            GUI.DrawTexture(position, TradeArrow);
         }
+
+        if (trad.CountToTransfer == 0)
+        {
+            return;
+        }
+
+        var position = new Rect(rect2.x + (rect2.width / 2f) - (TradeArrow.width / 2f),
+            rect2.y + (rect2.height / 2f) - (TradeArrow.height / 2f), TradeArrow.width, TradeArrow.height);
+        var positiveCountDirection = trad.PositiveCountDirection;
+        if (positiveCountDirection == TransferablePositiveCountDirection.Source && trad.CountToTransfer > 0 ||
+            positiveCountDirection == TransferablePositiveCountDirection.Destination &&
+            trad.CountToTransfer < 0)
+        {
+            position.x += position.width;
+            position.width *= -1f;
+        }
+
+        GUI.DrawTexture(position, TradeArrow);
     }
 }

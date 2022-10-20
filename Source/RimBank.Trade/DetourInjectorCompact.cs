@@ -1,15 +1,14 @@
 ﻿using HarmonyLib;
 using Verse;
 
-namespace RimBank.Trade
+namespace RimBank.Trade;
+
+[StaticConstructorOnStartup]
+internal static class DetourInjectorCompact
 {
-    [StaticConstructorOnStartup]
-    internal static class DetourInjectorCompact
+    static DetourInjectorCompact()
     {
-        static DetourInjectorCompact()
-        {
-            var harmony = new Harmony("user19990313.RimBank-Unofficial");
-            harmony.PatchAll();
-        }
+        var harmony = new Harmony("user19990313.RimBank-Unofficial");
+        harmony.PatchAll();
     }
 }

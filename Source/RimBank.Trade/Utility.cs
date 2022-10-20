@@ -42,9 +42,8 @@ public static class Utility
     {
         foreach (var cacheNote in Methods.cacheNotes)
         {
-            Log.Message(cacheNote.ThingDef.defName + ",colony=" + cacheNote.CountHeldBy(Transactor.Colony) +
-                        ",trader=" + cacheNote.CountHeldBy(Transactor.Trader) + ",dura=" +
-                        cacheNote.AnyThing.HitPoints);
+            Log.Message(
+                $"{cacheNote.ThingDef.defName},colony={cacheNote.CountHeldBy(Transactor.Colony)},trader={cacheNote.CountHeldBy(Transactor.Trader)},dura={cacheNote.AnyThing.HitPoints}");
         }
     }
 
@@ -52,14 +51,14 @@ public static class Utility
     {
         foreach (var item in cache)
         {
-            Log.Message(item.ThingDef.defName + ",x" + item.CountHeldBy(Transactor.Colony) + ",dura=" +
-                        item.AnyThing.HitPoints + ",cnt=" + item.CountToTransfer);
+            Log.Message(
+                $"{item.ThingDef.defName},x{item.CountHeldBy(Transactor.Colony)},dura={item.AnyThing.HitPoints},cnt={item.CountToTransfer}");
         }
     }
 
     public static void DebugprintfUpdateCurrencyCount(int num, int j, Transactor target)
     {
-        Log.Message("num=" + num + ",target=" + target + ",j=" + j);
+        Log.Message($"num={num},target={target},j={j}");
     }
 
     public static void AskPayByBankNotes(Tradeable currency, bool isVirtual = false)
