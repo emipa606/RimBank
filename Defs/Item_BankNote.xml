@@ -21,7 +21,7 @@ Thanks to what makes them, the polymeric firbes,banknotes are relatively durable
     </graphicData>
     <soundInteract>Standard_Drop</soundInteract>
     <soundDrop>Standard_Drop</soundDrop>
-    <stackLimit>50</stackLimit>
+    <stackLimit>500</stackLimit>
     <statBases>
       <MarketValue>1000</MarketValue>
       <MaxHitPoints>50</MaxHitPoints>

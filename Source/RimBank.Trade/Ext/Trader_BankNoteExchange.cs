@@ -20,7 +20,7 @@ public class Trader_BankNoteExchange : VirtualTrader
             yield return thing;
 
             thing = ThingMaker.MakeThing(BankDefOf.BankNote);
-            thing.stackCount = 50;
+            thing.stackCount = thing.def.stackLimit;
             yield return thing;
         }
     }
