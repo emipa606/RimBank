@@ -60,6 +60,7 @@ public class Trader_BankNoteExchange : VirtualTrader
             where x.ThingDef == BankDefOf.BankNote
             orderby x.AnyThing.HitPoints descending
             select x).ToList();
+        TradeSession.deal.CurrencyTradeable.thingsTrader = Goods.ToList();
         if (Methods.debug)
         {
             Utility.DebugOutputNotes();

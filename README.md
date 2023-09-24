@@ -98,5 +98,5 @@ Finally, I want to say thanks to all the co-authors. Our coop was really,really 
 
 
 
+https://steamcommunity.com/sharedfiles/filedetails/changelog/2071695947]![Image](https://img.shields.io/github/v/release/emipa606/RimBank?label=latest%20version&style=plastic&color=9f1111&labelColor=black)
 
-https://steamcommunity.com/sharedfiles/filedetails/changelog/2071695947]Last updated 2023-02-22
