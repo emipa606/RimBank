@@ -140,6 +140,30 @@ public class Dialog_PayByBankNotes : Window
             return;
         }
 
+        ((Action)delegate
+        {
+            if (!TestPlayerSilver())
+            {
+                Messages.Message("NotEnoughSilverColony".Translate(), MessageTypeDefOf.RejectInput);
+            }
+            else if (isVirtual && VirtualTrader.CustomCheckViolation(silverTradeable, notesTradeable))
+            {
+                VirtualTrader.CustomViolationAction();
+            }
+            else if (!TestTraderSilver())
+            {
+                SoundDefOf.ClickReject.PlayOneShotOnCamera();
+                Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("ConfirmTraderShortFunds".Translate(),
+                    ConfirmedExecuteTrade));
+            }
+            else
+            {
+                ExecuteTrade();
+            }
+        })();
+        Event.current.Use();
+        return;
+
         void ExecuteTrade()
         {
             CurrencyFmt = new Pair<int, int>(notesTradeable.CountToTransfer, silverTradeable.CountToTransfer);
@@ -169,29 +193,6 @@ public class Dialog_PayByBankNotes : Window
             silverTradeable.ForceTo(silverTradeable.CountHeldBy(Transactor.Trader));
             ExecuteTrade();
         }
-
-        ((Action)delegate
-        {
-            if (!TestPlayerSilver())
-            {
-                Messages.Message("NotEnoughSilverColony".Translate(), MessageTypeDefOf.RejectInput);
-            }
-            else if (isVirtual && VirtualTrader.CustomCheckViolation(silverTradeable, notesTradeable))
-            {
-                VirtualTrader.CustomViolationAction();
-            }
-            else if (!TestTraderSilver())
-            {
-                SoundDefOf.ClickReject.PlayOneShotOnCamera();
-                Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("ConfirmTraderShortFunds".Translate(),
-                    ConfirmedExecuteTrade));
-            }
-            else
-            {
-                ExecuteTrade();
-            }
-        })();
-        Event.current.Use();
     }
 
     public void DrawTradeableRow(Rect rect, Tradeable trad, int index)

@@ -10,8 +10,8 @@ namespace RimBank.Trade;
 public static class Methods
 {
     private static readonly string CopyrightStr = "RimBank A17,user19990313,Baidu Tieba&Ludeon forum";
-    internal static bool debug = false;
-    internal static List<Tradeable> cacheNotes = new List<Tradeable>();
+    internal static readonly bool debug = false;
+    internal static List<Tradeable> cacheNotes = [];
     private static readonly FieldInfo tradeables = AccessTools.Field(typeof(TradeDeal), "tradeables");
 
     public static bool DoExecute(this TradeDeal This)

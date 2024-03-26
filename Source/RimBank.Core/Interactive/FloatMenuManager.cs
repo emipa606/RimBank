@@ -10,13 +10,13 @@ namespace RimBank.Core.Interactive;
 
 public static class FloatMenuManager
 {
-    internal static Dictionary<string, Action<Pawn>> rawItems;
+    internal static readonly Dictionary<string, Action<Pawn>> rawItems;
 
-    internal static Dictionary<string, bool> usesDefaultJobDriver;
+    internal static readonly Dictionary<string, bool> usesDefaultJobDriver;
 
     internal static Action<Pawn> currentAction;
 
-    internal static Dictionary<string, Action> shiftKeyItems;
+    internal static readonly Dictionary<string, Action> shiftKeyItems;
 
     static FloatMenuManager()
     {

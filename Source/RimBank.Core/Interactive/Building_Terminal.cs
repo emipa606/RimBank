@@ -7,13 +7,14 @@ namespace RimBank.Core.Interactive;
 
 public class Building_Terminal : Building
 {
+    private readonly GameConditionDef solarFlare = GameConditionDef.Named("SolarFlare");
     private CompPowerTrader powerComp;
 
     public bool CanUseTerminalNow
     {
         get
         {
-            if (!Spawned || !Map.gameConditionManager.ConditionIsActive(GameConditionDefOf.SolarFlare))
+            if (!Spawned || !Map.gameConditionManager.ConditionIsActive(solarFlare))
             {
                 return powerComp.PowerOn;
             }
@@ -39,7 +40,7 @@ public class Building_Terminal : Building
             };
         }
 
-        if (Spawned && Map.gameConditionManager.ConditionIsActive(GameConditionDefOf.SolarFlare))
+        if (Spawned && Map.gameConditionManager.ConditionIsActive(solarFlare))
         {
             var item2 = new FloatMenuOption("CannotUseSolarFlare".Translate(), null);
             return new List<FloatMenuOption>

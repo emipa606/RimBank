@@ -8,7 +8,6 @@ internal static class DetourInjectorCompact
 {
     static DetourInjectorCompact()
     {
-        var harmony = new Harmony("user19990313.RimBank-Unofficial");
-        harmony.PatchAll();
+        new Harmony("user19990313.RimBank-Unofficial").PatchAll();
     }
 }

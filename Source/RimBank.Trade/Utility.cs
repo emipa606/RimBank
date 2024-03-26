@@ -19,7 +19,7 @@ public static class Utility
 
     internal static void ResetCacheNotes()
     {
-        Methods.cacheNotes = new List<Tradeable>();
+        Methods.cacheNotes = [];
     }
 
     internal static int GetNotesBalanceAvaliable(Transactor trans)
