@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using RimBank.Trade.Ext;
 using RimWorld;
 using Verse;
@@ -8,29 +7,20 @@ namespace RimBank.Trade;
 
 public static class Utility
 {
-    public static void CacheNotes()
-    {
-        Methods.cacheNotes = (from x in TradeSession.deal.AllTradeables
-            where x.ThingDef.defName == "BankNote"
-            orderby x.AnyThing.HitPoints descending
-            select x).ToList();
-    }
-
-
     internal static void ResetCacheNotes()
     {
-        Methods.cacheNotes = [];
+        Methods.CacheNotes = [];
     }
 
-    internal static int GetNotesBalanceAvaliable(Transactor trans)
+    internal static int GetNotesBalanceAvailable(Transactor trans)
     {
-        return GetNotesCountAvaliable(trans) * 1000;
+        return getNotesCountAvailable(trans) * 1000;
     }
 
-    internal static int GetNotesCountAvaliable(Transactor trans)
+    private static int getNotesCountAvailable(Transactor trans)
     {
         var num = 0;
-        foreach (var cacheNote in Methods.cacheNotes)
+        foreach (var cacheNote in Methods.CacheNotes)
         {
             num += cacheNote.CountHeldBy(trans);
         }
@@ -40,7 +30,7 @@ public static class Utility
 
     public static void DebugOutputNotes()
     {
-        foreach (var cacheNote in Methods.cacheNotes)
+        foreach (var cacheNote in Methods.CacheNotes)
         {
             Log.Message(
                 $"{cacheNote.ThingDef.defName},colony={cacheNote.CountHeldBy(Transactor.Colony)},trader={cacheNote.CountHeldBy(Transactor.Trader)},dura={cacheNote.AnyThing.HitPoints}");
@@ -70,16 +60,16 @@ public static class Utility
             return;
         }
 
-        var playersilver = currency.CountHeldBy(Transactor.Colony);
-        var notesCountAvaliable = GetNotesCountAvaliable(Transactor.Colony);
+        var playerSilver = currency.CountHeldBy(Transactor.Colony);
+        var notesCountAvailable = getNotesCountAvailable(Transactor.Colony);
         var countToTransfer = currency.CountToTransfer;
         var num = 0;
-        for (var num2 = Methods.cacheNotes.Count - 1; num2 > -1; num2--)
+        for (var num2 = Methods.CacheNotes.Count - 1; num2 > -1; num2--)
         {
-            num += Methods.cacheNotes[num2].CountHeldBy(Transactor.Trader);
+            num += Methods.CacheNotes[num2].CountHeldBy(Transactor.Trader);
         }
 
-        Find.WindowStack.Add(new Dialog_PayByBankNotes(countToTransfer, playersilver, notesCountAvaliable,
+        Find.WindowStack.Add(new Dialog_PayByBankNotes(countToTransfer, playerSilver, notesCountAvailable,
             currency.CountHeldBy(Transactor.Trader), num, isVirtual));
     }
 

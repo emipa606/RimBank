@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
   <RimBankBuildingTerminal.label>リム銀行ATM</RimBankBuildingTerminal.label>
   <RimBankBuildingTerminal.description>リム銀行との取引を行える統合通信モジュールです。特殊なデジタル認証システムにより、シルバーと紙幣を両替することができます。</RimBankBuildingTerminal.description>

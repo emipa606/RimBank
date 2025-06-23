@@ -56,12 +56,12 @@ public class Trader_BankNoteExchange : VirtualTrader
 
     public override void InvokeTradeUI()
     {
-        Methods.cacheNotes = (from x in TradeSession.deal.AllTradeables
+        Methods.CacheNotes = (from x in TradeSession.deal.AllTradeables
             where x.ThingDef == BankDefOf.BankNote
             orderby x.AnyThing.HitPoints descending
             select x).ToList();
         TradeSession.deal.CurrencyTradeable.thingsTrader = Goods.ToList();
-        if (Methods.debug)
+        if (Methods.Debug)
         {
             Utility.DebugOutputNotes();
             Utility.DebugOutputTradeables(TradeSession.deal.AllTradeables.ToList());

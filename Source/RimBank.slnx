@@ -1,0 +1,9 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Release" />
+  </Configurations>
+  <Project Path="RimBank.Core/RimBank.Core.csproj">
+    <BuildDependency Project="RimBank.Trade/RimBank.Trade.csproj" />
+  </Project>
+  <Project Path="RimBank.Trade/RimBank.Trade.csproj" />
+</Solution>

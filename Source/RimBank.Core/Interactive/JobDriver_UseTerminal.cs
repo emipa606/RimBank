@@ -21,7 +21,7 @@ public class JobDriver_UseTerminal : JobDriver
                 var actor = CurToil.actor;
                 if (((Building_Terminal)actor.jobs.curJob.GetTarget(TargetIndex.A).Thing).CanUseTerminalNow)
                 {
-                    FloatMenuManager.currentAction(actor);
+                    FloatMenuManager.CurrentAction(actor);
                 }
             }
         };

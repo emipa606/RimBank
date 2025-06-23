@@ -8,7 +8,7 @@ namespace RimBank.Core;
 
 internal class ModContentRemover
 {
-    private static readonly string CopyrightStr = "RimBank A17,user19990313,Baidu Tieba&Ludeon forum";
+    private static readonly string copyrightStr = "RimBank A17,user19990313,Baidu Tieba&Ludeon forum";
 
     internal static int RemoveAllModContentsFromWorldObjects()
     {

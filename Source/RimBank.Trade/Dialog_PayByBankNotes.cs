@@ -51,9 +51,9 @@ public class Dialog_PayByBankNotes : Window
         silverTradeable.ForceTo(expense);
     }
 
-    public override Vector2 InitialSize => new Vector2(479f, 270f);
-    private VirtualTrader VirtualTrader => (VirtualTrader)TradeSession.trader;
-    public Pair<int, int> CurrencyFmt { get; private set; } = new Pair<int, int>(0, 0);
+    public override Vector2 InitialSize => new(479f, 270f);
+    private static VirtualTrader VirtualTrader => (VirtualTrader)TradeSession.trader;
+    public Pair<int, int> CurrencyFmt { get; private set; } = new(0, 0);
 
     public override void DoWindowContents(Rect inRect)
     {
@@ -77,11 +77,11 @@ public class Dialog_PayByBankNotes : Window
         GUI.color = color;
         height += 2.5f;
         var rect2 = new Rect(inRect.x, height, inRect.width, 30f);
-        DrawTradeableRow(rect2, silverTradeable, 1);
+        drawTradeableRow(rect2, silverTradeable, 1);
         var countToTransfer = notesTradeable.CountToTransfer;
         var countToTransfer2 = silverTradeable.CountToTransfer;
         var rect3 = new Rect(inRect.x, height + 30f, inRect.width, 30f);
-        DrawTradeableRow(rect3, notesTradeable, 2);
+        drawTradeableRow(rect3, notesTradeable, 2);
         if (countToTransfer != notesTradeable.CountToTransfer)
         {
             if (!isVirtual || !VirtualTrader.UniqueBalanceMethod)
@@ -125,8 +125,8 @@ public class Dialog_PayByBankNotes : Window
             TooltipHandler.TipRegion(rect5, "BankNoteTip".Translate());
         }
 
-        var num = 120f;
-        var height2 = 40f;
+        const float num = 120f;
+        const float height2 = 40f;
         if (Widgets.ButtonText(new Rect(inRect.width * 9f / 16f, inRect.height - 55f, num, height2),
                 "CancelButton".Translate()))
         {
@@ -142,7 +142,7 @@ public class Dialog_PayByBankNotes : Window
 
         ((Action)delegate
         {
-            if (!TestPlayerSilver())
+            if (!testPlayerSilver())
             {
                 Messages.Message("NotEnoughSilverColony".Translate(), MessageTypeDefOf.RejectInput);
             }
@@ -150,21 +150,21 @@ public class Dialog_PayByBankNotes : Window
             {
                 VirtualTrader.CustomViolationAction();
             }
-            else if (!TestTraderSilver())
+            else if (!testTraderSilver())
             {
                 SoundDefOf.ClickReject.PlayOneShotOnCamera();
                 Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("ConfirmTraderShortFunds".Translate(),
-                    ConfirmedExecuteTrade));
+                    confirmedExecuteTrade));
             }
             else
             {
-                ExecuteTrade();
+                executeTrade();
             }
         })();
         Event.current.Use();
         return;
 
-        void ExecuteTrade()
+        void executeTrade()
         {
             CurrencyFmt = new Pair<int, int>(notesTradeable.CountToTransfer, silverTradeable.CountToTransfer);
             if (TradeSession.deal.DoExecute())
@@ -188,14 +188,14 @@ public class Dialog_PayByBankNotes : Window
             Close(false);
         }
 
-        void ConfirmedExecuteTrade()
+        void confirmedExecuteTrade()
         {
             silverTradeable.ForceTo(silverTradeable.CountHeldBy(Transactor.Trader));
-            ExecuteTrade();
+            executeTrade();
         }
     }
 
-    public void DrawTradeableRow(Rect rect, Tradeable trad, int index)
+    private void drawTradeableRow(Rect rect, Tradeable trad, int index)
     {
         if (index == 1)
         {
@@ -224,24 +224,26 @@ public class Dialog_PayByBankNotes : Window
 
         width -= 85f;
         var rect4 = new Rect(width - 240f, 0f, 240f, rect.height);
-        if (index == 2 && notesTradeable.CountHeldBy(Transactor.Colony) == 0 &&
-            notesTradeable.CountHeldBy(Transactor.Trader) == 0)
+        switch (index)
         {
-            Text.Anchor = TextAnchor.MiddleCenter;
-            var color = GUI.color;
-            GUI.color = Color.gray;
-            Widgets.Label(rect4, "NoNotes".Translate());
-            GUI.color = color;
-        }
-        else if (index == 1 && isVirtual && VirtualTrader.SilverAlsoAdjustable)
-        {
-            ExtUtil.DoCountAdjustInterfaceForSilver(rect4, trad, index, -trad.CountHeldBy(Transactor.Colony),
-                trad.CountHeldBy(Transactor.Trader), false);
-        }
-        else
-        {
-            TransferableUIUtility.DoCountAdjustInterface(rect4, trad, index, -trad.CountHeldBy(Transactor.Colony),
-                trad.CountHeldBy(Transactor.Trader));
+            case 2 when notesTradeable.CountHeldBy(Transactor.Colony) == 0 &&
+                        notesTradeable.CountHeldBy(Transactor.Trader) == 0:
+            {
+                Text.Anchor = TextAnchor.MiddleCenter;
+                var color = GUI.color;
+                GUI.color = Color.gray;
+                Widgets.Label(rect4, "NoNotes".Translate());
+                GUI.color = color;
+                break;
+            }
+            case 1 when isVirtual && VirtualTrader.SilverAlsoAdjustable:
+                ExtUtil.DoCountAdjustInterfaceForSilver(rect4, trad, index, -trad.CountHeldBy(Transactor.Colony),
+                    trad.CountHeldBy(Transactor.Trader), false);
+                break;
+            default:
+                TransferableUIUtility.DoCountAdjustInterface(rect4, trad, index, -trad.CountHeldBy(Transactor.Colony),
+                    trad.CountHeldBy(Transactor.Trader));
+                break;
         }
 
         width -= 240f;
@@ -266,12 +268,12 @@ public class Dialog_PayByBankNotes : Window
         GUI.EndGroup();
     }
 
-    private bool TestPlayerSilver()
+    private bool testPlayerSilver()
     {
         return silverTradeable.CountPostDealFor(Transactor.Colony) >= 0;
     }
 
-    private bool TestTraderSilver()
+    private bool testTraderSilver()
     {
         return silverTradeable.CountPostDealFor(Transactor.Trader) >= 0;
     }

@@ -14,12 +14,12 @@ public class VirtualTrader : ITrader
 
     public virtual IEnumerable<Thing> Goods => new List<Thing>
     {
-        new Thing
+        new()
         {
             def = BankDefOf.BankNote,
             stackCount = 50
         },
-        new Thing
+        new()
         {
             def = ThingDefOf.Silver,
             stackCount = 50000

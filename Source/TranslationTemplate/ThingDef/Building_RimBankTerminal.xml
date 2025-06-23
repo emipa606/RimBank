@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- EN: RimBank ATM Terminal -->
+  <RimBankBuildingTerminal.label>RimBank ATM Terminal</RimBankBuildingTerminal.label>
+  <!-- EN: A terminal with an integrated RimBank Communitating Module.This terminal is designed for banknote exchanging service just like an ATM,but it also supports some extra softwares with digital certifications. -->
+  <RimBankBuildingTerminal.description>A terminal with an integrated RimBank Communitating Module.This terminal is designed for banknote exchanging service just like an ATM,but it also supports some extra softwares with digital certifications.</RimBankBuildingTerminal.description>
+</LanguageData>

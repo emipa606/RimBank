@@ -9,7 +9,7 @@ namespace RimBank.Trade.Ext;
 [StaticConstructorOnStartup]
 public static class ExtUtil
 {
-    private static readonly Texture TradeArrow = (Texture)typeof(TransferableUIUtility)
+    private static readonly Texture tradeArrow = (Texture)typeof(TransferableUIUtility)
         .GetField("TradeArrow", BindingFlags.Instance | BindingFlags.Static | BindingFlags.NonPublic)
         ?.GetValue(null);
 
@@ -128,8 +128,8 @@ public static class ExtUtil
             return;
         }
 
-        var position = new Rect(rect2.x + (rect2.width / 2f) - (TradeArrow.width / 2f),
-            rect2.y + (rect2.height / 2f) - (TradeArrow.height / 2f), TradeArrow.width, TradeArrow.height);
+        var position = new Rect(rect2.x + (rect2.width / 2f) - (tradeArrow.width / 2f),
+            rect2.y + (rect2.height / 2f) - (tradeArrow.height / 2f), tradeArrow.width, tradeArrow.height);
         var positiveCountDirection = trad.PositiveCountDirection;
         if (positiveCountDirection == TransferablePositiveCountDirection.Source && trad.CountToTransfer > 0 ||
             positiveCountDirection == TransferablePositiveCountDirection.Destination &&
@@ -139,6 +139,6 @@ public static class ExtUtil
             position.width *= -1f;
         }
 
-        GUI.DrawTexture(position, TradeArrow);
+        GUI.DrawTexture(position, tradeArrow);
     }
 }

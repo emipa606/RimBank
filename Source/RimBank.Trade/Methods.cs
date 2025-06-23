@@ -9,22 +9,22 @@ namespace RimBank.Trade;
 
 public static class Methods
 {
+    internal const bool Debug = false;
     private static readonly string CopyrightStr = "RimBank A17,user19990313,Baidu Tieba&Ludeon forum";
-    internal static readonly bool debug = false;
-    internal static List<Tradeable> cacheNotes = [];
+    internal static List<Tradeable> CacheNotes = [];
     private static readonly FieldInfo tradeables = AccessTools.Field(typeof(TradeDeal), "tradeables");
 
-    public static bool DoExecute(this TradeDeal This)
+    public static bool DoExecute(this TradeDeal deal)
     {
         var currencyFmt = Utility.GetCurrencyFmt();
-        if (debug)
+        if (Debug)
         {
             Log.Message($"{currencyFmt.First},{currencyFmt.Second}");
         }
 
-        UpdateCurrencyCount(This, currencyFmt);
+        UpdateCurrencyCount(deal, currencyFmt);
         var actionsToDo = false;
-        foreach (var item in (List<Tradeable>)tradeables.GetValue(This))
+        foreach (var item in (List<Tradeable>)tradeables.GetValue(deal))
         {
             if (item.ActionToDo != 0)
             {
@@ -34,7 +34,7 @@ public static class Methods
             item.ResolveTrade();
         }
 
-        This.Reset();
+        deal.Reset();
         if (actionsToDo)
         {
             Utility.ResetCacheNotes();
@@ -43,22 +43,22 @@ public static class Methods
         return actionsToDo;
     }
 
-    public static bool CanColonyAffordTrade(TradeDeal This)
+    public static bool CanColonyAffordTrade(TradeDeal deal)
     {
-        var num = This.CurrencyTradeable.CountPostDealFor(Transactor.Colony);
-        var notesBalanceAvaliable = Utility.GetNotesBalanceAvaliable(Transactor.Colony);
-        return num + notesBalanceAvaliable > 0;
+        var num = deal.CurrencyTradeable.CountPostDealFor(Transactor.Colony);
+        var notesBalanceAvailable = Utility.GetNotesBalanceAvailable(Transactor.Colony);
+        return num + notesBalanceAvailable > 0;
     }
 
-    public static void UpdateCurrencyCount(TradeDeal This, Pair<int, int> currencyfmt)
+    private static void UpdateCurrencyCount(TradeDeal deal, Pair<int, int> currencyfmt)
     {
-        This.CurrencyTradeable.ForceTo(currencyfmt.Second);
+        deal.CurrencyTradeable.ForceTo(currencyfmt.Second);
         var num = Math.Abs(currencyfmt.First);
         var transactor = currencyfmt.First >= 0 ? Transactor.Trader : Transactor.Colony;
-        for (var num2 = cacheNotes.Count - 1; num2 > -1; num2--)
+        for (var num2 = CacheNotes.Count - 1; num2 > -1; num2--)
         {
-            var num3 = cacheNotes[num2].CountHeldBy(transactor);
-            if (debug)
+            var num3 = CacheNotes[num2].CountHeldBy(transactor);
+            if (Debug)
             {
                 Utility.DebugprintfUpdateCurrencyCount(num, num3, transactor);
             }
@@ -83,21 +83,21 @@ public static class Methods
                 num3 = -num3;
             }
 
-            if (debug)
+            if (Debug)
             {
                 Utility.DebugprintfUpdateCurrencyCount(num, num3, transactor);
             }
 
-            cacheNotes[num2].ForceTo(num3);
+            CacheNotes[num2].ForceTo(num3);
             if (num == 0)
             {
                 break;
             }
         }
 
-        if (debug)
+        if (Debug)
         {
-            Utility.DebugOutputTradeables((List<Tradeable>)tradeables.GetValue(This));
+            Utility.DebugOutputTradeables((List<Tradeable>)tradeables.GetValue(deal));
         }
     }
 }
