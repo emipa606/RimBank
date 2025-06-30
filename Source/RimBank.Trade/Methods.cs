@@ -11,7 +11,7 @@ public static class Methods
 {
     internal const bool Debug = false;
     private static readonly string CopyrightStr = "RimBank A17,user19990313,Baidu Tieba&Ludeon forum";
-    internal static List<Tradeable> CacheNotes = [];
+    public static List<Tradeable> CacheNotes = [];
     private static readonly FieldInfo tradeables = AccessTools.Field(typeof(TradeDeal), "tradeables");
 
     public static bool DoExecute(this TradeDeal deal)

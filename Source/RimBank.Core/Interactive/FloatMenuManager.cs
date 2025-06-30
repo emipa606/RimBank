@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using RimBank.Trade.Ext;
 using RimWorld;
 using UnityEngine;
@@ -24,7 +25,7 @@ public static class FloatMenuManager
         usesDefaultJobDriver = new Dictionary<string, bool>();
         CurrentAction = null;
         shiftKeyItems = new Dictionary<string, Action>();
-        add("FloatMenuCaptionExchange".Translate(),
+        Add("FloatMenuCaptionExchange".Translate(),
             delegate(Pawn p) { ExtUtil.PrepareVirtualTrade(p, new Trader_BankNoteExchange()); }, true);
         addShiftKeyItem("FloatMenuCaptionRemoveAll".Translate(), delegate
         {
@@ -40,10 +41,19 @@ public static class FloatMenuManager
         });
     }
 
-    private static void add(string str, Action<Pawn> action, bool defaultJobDriver = false)
+    // ReSharper disable once MemberCanBePrivate.Global
+    public static void Add(string str, Action<Pawn> action, bool defaultJobDriver = false)
     {
         rawItems.Add(str, action);
         usesDefaultJobDriver.Add(str, defaultJobDriver);
+    }
+
+    [UsedImplicitly]
+    public static void Remove(string name)
+    {
+        rawItems.Remove(name);
+        usesDefaultJobDriver.Remove(name);
+        shiftKeyItems.Remove(name);
     }
 
     private static void addShiftKeyItem(string str, Action action)

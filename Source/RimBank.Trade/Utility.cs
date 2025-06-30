@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using JetBrains.Annotations;
 using RimBank.Trade.Ext;
 using RimWorld;
 using Verse;
@@ -7,6 +9,15 @@ namespace RimBank.Trade;
 
 public static class Utility
 {
+    [UsedImplicitly]
+    public static void CacheNotes()
+    {
+        Methods.CacheNotes = (from x in TradeSession.deal.AllTradeables
+            where x.ThingDef.defName == "BankNote"
+            orderby x.AnyThing.HitPoints descending
+            select x).ToList();
+    }
+
     internal static void ResetCacheNotes()
     {
         Methods.CacheNotes = [];
