@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Linq;
+using System.Reflection;
 using RimBank.Trade;
 using RimWorld;
 using RimWorld.Planet;
@@ -6,7 +7,7 @@ using Verse;
 
 namespace RimBank.Core;
 
-internal class ModContentRemover
+internal static class ModContentRemover
 {
     private static readonly string copyrightStr = "RimBank A17,user19990313,Baidu Tieba&Ludeon forum";
 
@@ -15,47 +16,47 @@ internal class ModContentRemover
         var num = 0;
         var field = typeof(Settlement_TraderTracker).GetField("stock",
             BindingFlags.Instance | BindingFlags.NonPublic);
-        foreach (var settlement in Find.WorldObjects.Settlements)
+        foreach (var trader in Find.WorldObjects.Settlements.Select(settlement => settlement.trader))
         {
-            if (settlement.trader == null || field?.GetValue(settlement.trader) == null)
+            if (trader == null || field?.GetValue(trader) == null)
             {
                 continue;
             }
 
-            for (var num2 = settlement.trader.StockListForReading.Count - 1; num2 > -1; num2--)
+            for (var num2 = trader.StockListForReading.Count - 1; num2 > -1; num2--)
             {
-                if (settlement.trader.StockListForReading[num2].def != BankDefOf.BankNote &&
-                    settlement.trader.StockListForReading[num2].GetInnerIfMinified().def !=
+                if (trader.StockListForReading[num2].def != BankDefOf.BankNote &&
+                    trader.StockListForReading[num2].GetInnerIfMinified().def !=
                     CoreDefOf.RimBankBuildingTerminal)
                 {
                     continue;
                 }
 
-                num += settlement.trader.StockListForReading[num2].stackCount;
-                settlement.trader.StockListForReading.RemoveAt(num2);
+                num += trader.StockListForReading[num2].stackCount;
+                trader.StockListForReading.RemoveAt(num2);
             }
         }
 
         foreach (var caravan in Find.WorldObjects.Caravans)
         {
-            foreach (var item in caravan.PawnsListForReading)
+            foreach (var inventory in caravan.PawnsListForReading.Select(pawn => pawn.inventory))
             {
-                if (item.inventory == null || item.inventory.innerContainer.Count <= 0)
+                if (inventory == null || inventory.innerContainer.Count <= 0)
                 {
                     continue;
                 }
 
-                for (var num3 = item.inventory.innerContainer.Count - 1; num3 > -1; num3--)
+                for (var num3 = inventory.innerContainer.Count - 1; num3 > -1; num3--)
                 {
-                    if (item.inventory.innerContainer[num3].def != BankDefOf.BankNote &&
-                        item.inventory.innerContainer[num3].GetInnerIfMinified().def !=
+                    if (inventory.innerContainer[num3].def != BankDefOf.BankNote &&
+                        inventory.innerContainer[num3].GetInnerIfMinified().def !=
                         CoreDefOf.RimBankBuildingTerminal)
                     {
                         continue;
                     }
 
-                    num += item.inventory.innerContainer[num3].stackCount;
-                    item.inventory.innerContainer.RemoveAt(num3);
+                    num += inventory.innerContainer[num3].stackCount;
+                    inventory.innerContainer.RemoveAt(num3);
                 }
             }
         }
@@ -94,7 +95,7 @@ internal class ModContentRemover
                     thingOwner.RemoveAt(num2);
                 }
 
-                field.SetValue(tradeShip, thingOwner);
+                field?.SetValue(tradeShip, thingOwner);
             }
         }
 
@@ -146,47 +147,47 @@ internal class ModContentRemover
     internal static int RemoveAllModContentsFromAllPawns()
     {
         var num = 0;
-        foreach (var item in Find.WorldPawns.AllPawnsAliveOrDead)
+        foreach (var inventory in Find.WorldPawns.AllPawnsAliveOrDead.Select(pawn => pawn.inventory))
         {
-            if (item.inventory == null || !item.inventory.innerContainer.Any)
+            if (inventory == null || !inventory.innerContainer.Any)
             {
                 continue;
             }
 
-            for (var num2 = item.inventory.innerContainer.Count - 1; num2 > -1; num2--)
+            for (var num2 = inventory.innerContainer.Count - 1; num2 > -1; num2--)
             {
-                if (item.inventory.innerContainer[num2].def != BankDefOf.BankNote &&
-                    item.inventory.innerContainer[num2].GetInnerIfMinified().def !=
+                if (inventory.innerContainer[num2].def != BankDefOf.BankNote &&
+                    inventory.innerContainer[num2].GetInnerIfMinified().def !=
                     CoreDefOf.RimBankBuildingTerminal)
                 {
                     continue;
                 }
 
-                num += item.inventory.innerContainer[num2].stackCount;
-                item.inventory.innerContainer.RemoveAt(num2);
+                num += inventory.innerContainer[num2].stackCount;
+                inventory.innerContainer.RemoveAt(num2);
             }
         }
 
         foreach (var map in Find.Maps)
         {
-            foreach (var allPawn in map.mapPawns.AllPawns)
+            foreach (var inventory in map.mapPawns.AllPawns.Select(pawn => pawn.inventory))
             {
-                if (allPawn.inventory == null || !allPawn.inventory.innerContainer.Any)
+                if (inventory == null || !inventory.innerContainer.Any)
                 {
                     continue;
                 }
 
-                for (var num3 = allPawn.inventory.innerContainer.Count - 1; num3 > -1; num3--)
+                for (var num3 = inventory.innerContainer.Count - 1; num3 > -1; num3--)
                 {
-                    if (allPawn.inventory.innerContainer[num3].def != BankDefOf.BankNote &&
-                        allPawn.inventory.innerContainer[num3].GetInnerIfMinified().def !=
+                    if (inventory.innerContainer[num3].def != BankDefOf.BankNote &&
+                        inventory.innerContainer[num3].GetInnerIfMinified().def !=
                         CoreDefOf.RimBankBuildingTerminal)
                     {
                         continue;
                     }
 
-                    num += allPawn.inventory.innerContainer[num3].stackCount;
-                    allPawn.inventory.innerContainer.RemoveAt(num3);
+                    num += inventory.innerContainer[num3].stackCount;
+                    inventory.innerContainer.RemoveAt(num3);
                 }
             }
         }
