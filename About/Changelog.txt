@@ -1,5 +1,8 @@
 # Changelog for RimBank
 
+1.7.1 - Fixed Korean translation
+
+
 1.7.0 - Mod updated for 1.7 and passed autotests
 Used DeepL to update translations for German, ChineseSimplified, French, ChineseTraditional, Japanese, Korean, Russian
 
